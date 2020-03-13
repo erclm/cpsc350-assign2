@@ -109,6 +109,7 @@ void World::readWorldFromFile(string inFileName){
   }else{
     std::cout << "File not found" << '\n';
     inFile.close();
+    exit(1);
   }
 }
 
