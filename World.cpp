@@ -16,6 +16,7 @@ World::World(int h, int l, double density, int gm){
     nextGen[i] = new int[length];
   }
 
+  //FILL
   for(int i = 0;i<height;i++){
     for(int j = 0;j<length;j++){
       if((rand()%100)<(density*100)){//if random variable is smaller than density(a decimal), we fill with 1. simple but works
@@ -60,6 +61,7 @@ void World::printWorld(){
     }
     cout<<endl;
   }
+  cout<<endl;
 }
 
 
@@ -151,13 +153,13 @@ int World::getMirror(int h, int l){
 	if (h<0){
     h = 0;//if its -1, gotta return rows at 0, and it will never ask for -2 as an input
   }else if (h>=height){
-    h--;
+    h = height-1;
   }
 
 	if (l<0){
     l = 0;
   }else if (l>=length){
-    l--;;
+    l = length-1;
   }
 
   return nowGen[h][l];

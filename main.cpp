@@ -43,17 +43,17 @@ int main(int argc, char const *argv[]){
 
     do{
       if(pause==1){
-        std::cout << cnt << '\n';
+        std::cout<< "generation " << cnt << '\n';
         play.board->printWorld();
         cin.clear();
         cin.ignore();
       }else if(pause==2){
-        std::cout << cnt << '\n';
+        std::cout<< "generation " << cnt << '\n';
         play.board->printWorld();
-        std::chrono::seconds dura(5);
+        std::chrono::seconds dura(2);
         std::this_thread::sleep_for(dura);
       }else if(pause==3){
-        outFile<< cnt << endl;
+        outFile<< "generation "<< cnt << endl;
         for(int i=0;i<play.board->height;i++){
           for(int j=0;j<play.board->length;j++){
             if(play.board->nextGen[i][j] == 1){
@@ -107,17 +107,18 @@ int main(int argc, char const *argv[]){
 
     do{
       if(pause==1){
-        std::cout << cnt << '\n';
-        play.print();
+        std::cout << "generation "<< cnt << '\n';
+        play.board->printWorld();
+
         cin.clear();
         cin.ignore();
       }else if(pause==2){
-        std::cout << cnt << '\n';
-        play.print();
-        std::chrono::seconds dura(5);
+        std::cout << "generation "<< cnt << '\n';
+        play.board->printWorld();
+        std::chrono::seconds dura(2);//sleep for 2 sec
         std::this_thread::sleep_for(dura);
       }else if(pause==3){
-        outFile<< cnt << endl;
+        outFile<< "generation "<<cnt << endl;
         for(int i=0;i<play.board->height;i++){
           for(int j=0;j<play.board->length;j++){
             if(play.board->nextGen[i][j] == 1){
@@ -135,6 +136,9 @@ int main(int argc, char const *argv[]){
       cnt++;
     }while(!play.checkIfSame());
   }
+  outFile.close();
+  std::cout << "simulation done, press enter to exit" << '\n';
+  cin.ignore();
 
 
 /*

@@ -11,7 +11,7 @@ public:
   void simulate();
   bool checkIfSame();
 
-  void print();
+  //void print();
   int count;
   World *board;
 };
